@@ -1,0 +1,16 @@
+[project]
+name = "corp-ca"
+version = "0.1.0"
+description = "Build a CA bundle from the Windows cert store and wire it into the user environment"
+requires-python = ">=3.10"
+dependencies = ["certifi", "cryptography", "requests"]
+
+[project.scripts]
+corp-ca = "corp_ca:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["corp_ca.py"]
